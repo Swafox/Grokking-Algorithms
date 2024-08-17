@@ -1,22 +1,4 @@
-fn binary_search(list: Vec<i32>, item: i32) -> Option<i32> {
-    let mut low: usize = 0;
-    let mut high: usize = list.len();
-
-    while low < high {
-        let mid: usize = (low + high) / 2;
-
-        let guess: &i32 = &list[mid];
-        if *guess == item {
-            return Some(mid as i32);
-        } else if *guess > item {
-            high = mid - 1;
-        } else {
-            low = mid + 1;
-        }
-    }
-
-    None
-}
+use binary_search::binary_search;
 
 fn main() {
     let mut input: Vec<i32> = Vec::new();

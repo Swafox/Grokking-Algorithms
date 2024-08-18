@@ -23,6 +23,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build
-      run: cargo build --verbose
+      run: |
+        cd ${{ matrix.directory }} 
+        cargo build --verbose
     - name: Run tests
-      run: cargo test --verbose
+      run: |
+        cd ${{ matrix.directory }}
+        cargo test --verbose
+        

@@ -2,16 +2,15 @@ name: Rust
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,15 +18,15 @@ jobs:
         directory:
           - binary_search
           - quicksort
-          
+          - breadth_first
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: |
-        cd ${{ matrix.directory }} 
-        cargo build --verbose
-    - name: Run tests
-      run: |
-        cd ${{ matrix.directory }}
-        cargo test --verbose
-        
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          cd ${{ matrix.directory }} 
+          cargo build --verbose
+      - name: Run tests
+        run: |
+          cd ${{ matrix.directory }}
+          cargo test --verbose

@@ -19,6 +19,7 @@ jobs:
           - binary_search
           - quicksort
           - breadth_first
+          - dijkstra
 
     steps:
       - uses: actions/checkout@v4
